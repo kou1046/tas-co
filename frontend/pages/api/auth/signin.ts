@@ -14,7 +14,7 @@ const signinHandler: NextApiHandler = async (req: NextApiRequest, res: NextApiRe
     });
     res.status(200).redirect(307, "http://localhost:3000/app/");
   } catch (e) {
-    throw new Error("認証エラー");
+    console.log(e);
   }
 };
 

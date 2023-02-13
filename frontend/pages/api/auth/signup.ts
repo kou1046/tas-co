@@ -4,6 +4,7 @@ import signUp from "@/lib/utils/signUp";
 
 const signUpHandler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email, password } = req.body;
+
   try {
     const response = await signUp(email, password);
     const { idToken } = await response.data;
@@ -13,8 +14,9 @@ const signUpHandler: NextApiHandler = async (req: NextApiRequest, res: NextApiRe
       path: "/",
     });
     res.redirect(307, "/");
-  } catch (e) {
-    res.status(400);
+  } catch (e: any) {
+    const { status, data } = e.response;
+    res.status(status).json(data);
   }
 };
 
