@@ -1,5 +1,5 @@
 export type User = {
-  localID: string;
+  localId: string;
   email: string;
   emailVerified: boolean;
   displayName: string;
@@ -11,4 +11,10 @@ export type User = {
   lastLoginAt: string;
   createdAt: string;
   customAuth: boolean;
+};
+
+export type Me = {
+  email: string;
+  displayName: string;
+  localId: string;
 };
